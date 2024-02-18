@@ -1,16 +1,16 @@
 'Provider=SQLOLEDB
 'Dim conexion, cmd, resultadoCreate, resultadoSelect
 
-' Crear objeto de conexi髇 ADO
+' Crear objeto de conexi贸n ADO
 'Set conexion = CreateObject("ADODB.Connection")
 
-' Establecer la cadena de conexi髇
+' Establecer la cadena de conexi贸n
 'conexion.ConnectionString = "Provider=SQLOLEDB;Data Source=localhost;Initial Catalog=AdventureWorks2022;Integrated Security=SSPI;"
 
-' Abrir la conexi髇
+' Abrir la conexi贸n
 'conexion.Open
 
-' Crear objeto de comando para la creaci髇 de la tabla temporal
+' Crear objeto de comando para la creaci贸n de la tabla temporal
 'Set cmd = CreateObject("ADODB.Command")
 'cmd.ActiveConnection = conexion
 'cmd.CommandType = 1 ' Tipo de comando: Texto
@@ -19,10 +19,10 @@
 'cmd.CommandText = "SELECT SalesOrderID, ProductID, OrderQty INTO #MiTablaTemporal FROM Sales.SalesOrderDetail;"
 'Set resultadoCreate = cmd.Execute
 
-' Cerrar el Recordset de creaci髇
+' Cerrar el Recordset de creaci贸n
 'resultadoCreate.Close
 
-' Crear un nuevo objeto de comando para la selecci髇 de datos de la tabla temporal
+' Crear un nuevo objeto de comando para la selecci贸n de datos de la tabla temporal
 'Set cmd = CreateObject("ADODB.Command")
 'cmd.ActiveConnection = conexion
 'cmd.CommandType = 1 ' Tipo de comando: Texto
@@ -39,7 +39,7 @@
 '    resultadoSelect.MoveNext
 'Loop
 
-' Cerrar la conexi髇
+' Cerrar la conexi贸n
 'conexion.Close
 
 ' Liberar los objetos
@@ -52,16 +52,16 @@
 'Provider=MSOLEDBSQL
 'Dim conexion, cmd, resultadoCreate, resultadoSelect
 
-' Crear objeto de conexi髇 ADO
+' Crear objeto de conexi贸n ADO
 'Set conexion = CreateObject("ADODB.Connection")
 
-' Establecer la cadena de conexi髇 con MSOLEDBSQL
+' Establecer la cadena de conexi贸n con MSOLEDBSQL
 'conexion.ConnectionString = "Provider=MSOLEDBSQL;Data Source=localhost;Initial Catalog=AdventureWorks2022;Integrated Security=SSPI;"
 
-' Abrir la conexi髇
+' Abrir la conexi贸n
 'conexion.Open
 
-' Crear objeto de comando para la creaci髇 de la tabla temporal
+' Crear objeto de comando para la creaci贸n de la tabla temporal
 'Set cmd = CreateObject("ADODB.Command")
 'cmd.ActiveConnection = conexion
 'cmd.CommandType = 1 ' Tipo de comando: Texto
@@ -70,10 +70,10 @@
 'cmd.CommandText = "SELECT SalesOrderID, ProductID, OrderQty INTO #MiTablaTemporal FROM Sales.SalesOrderDetail;"
 'Set resultadoCreate = cmd.Execute
 
-' Cerrar el Recordset de creaci髇
+' Cerrar el Recordset de creaci贸n
 'resultadoCreate.Close
 
-' Crear un nuevo objeto de comando para la selecci髇 de datos de la tabla temporal
+' Crear un nuevo objeto de comando para la selecci贸n de datos de la tabla temporal
 'Set cmd = CreateObject("ADODB.Command")
 'cmd.ActiveConnection = conexion
 'cmd.CommandType = 1 ' Tipo de comando: Texto
@@ -90,7 +90,7 @@
 '    resultadoSelect.MoveNext
 'Loop
 
-' Cerrar la conexi髇
+' Cerrar la conexi贸n
 'conexion.Close
 
 ' Liberar los objetos
@@ -104,16 +104,16 @@
 'Driver={SQL Server}
 'Dim conexion, cmd, resultadoCreate, resultadoSelect
 
-' Crear objeto de conexi髇 ADO
+' Crear objeto de conexi贸n ADO
 'Set conexion = CreateObject("ADODB.Connection")
 
-' Establecer la cadena de conexi髇 ODBC con {SQL Server}
+' Establecer la cadena de conexi贸n ODBC con {SQL Server}
 'conexion.ConnectionString = "Driver={SQL Server};Server=localhost;Database=AdventureWorks2022;Trusted_Connection=Yes;"
 
-' Abrir la conexi髇
+' Abrir la conexi贸n
 'conexion.Open
 
-' Crear objeto de comando para la creaci髇 de la tabla temporal
+' Crear objeto de comando para la creaci贸n de la tabla temporal
 'Set cmd = CreateObject("ADODB.Command")
 'cmd.ActiveConnection = conexion
 'cmd.CommandType = 1 ' Tipo de comando: Texto
@@ -122,10 +122,10 @@
 'cmd.CommandText = "SELECT SalesOrderID, ProductID, OrderQty INTO ##MiTablaTemporal FROM Sales.SalesOrderDetail where SalesOrderID=43668;"
 'Set resultadoCreate = cmd.Execute
 
-' Cerrar el Recordset de creaci髇
+' Cerrar el Recordset de creaci贸n
 'resultadoCreate.Close
 
-' Crear un nuevo objeto de comando para la selecci髇 de datos de la tabla temporal
+' Crear un nuevo objeto de comando para la selecci贸n de datos de la tabla temporal
 'Set cmd = CreateObject("ADODB.Command")
 'cmd.ActiveConnection = conexion
 'cmd.CommandType = 1 ' Tipo de comando: Texto
@@ -142,7 +142,7 @@
 '    resultadoSelect.MoveNext
 'Loop
 
-' Cerrar la conexi髇
+' Cerrar la conexi贸n
 'conexion.Close
 
 ' Liberar los objetos
@@ -153,40 +153,56 @@
 
 '-------------------------------
 'Driver={SQL Server}
-Dim conexion, resultadoCreate, resultadoSelect
+Dim conexion, objRS
 
-' Crear objeto de conexi髇 ADO
+ 'Crear objeto de conexi贸n ADO
 Set conexion = CreateObject("ADODB.Connection")
 
-' Establecer la cadena de conexi髇 ODBC con {SQL Server}
-conexion.ConnectionString = "Driver={SQL Server};Server=localhost;Database=AdventureWorks2022;Trusted_Connection=Yes;"
+ 'Establecer la cadena de conexi贸n ODBC con {SQL Server}
+conexion.ConnectionString = "Driver={SQL Server};Server=MARCOSMG;Database=AdventureWorks2022;Trusted_Connection=Yes;"
 
-' Abrir la conexi髇
+ 'Abrir la conexi贸n
 conexion.Open
 
-' Crear objeto de Recordset para la creaci髇 de la tabla temporal
+ 'Crear objeto de Recordset para la creaci贸n de la tabla temporal
 Set objRS = CreateObject("ADODB.Recordset")
 objRS.ActiveConnection = conexion
-objRS.CursorType = 3 ' Tipo de cursor: AdOpenStatic (conjunto de registros est醫ico)
+objRS.CursorType = 3 ' Tipo de cursor: AdOpenStatic (conjunto de registros est谩tico)
 objRS.LockType = 3 ' Tipo de bloqueo: AdLockOptimistic
-objRS.Open "SELECT SalesOrderID, ProductID, OrderQty INTO ##MiTablaTemporal FROM Sales.SalesOrderDetail WHERE SalesOrderID=43668;", conexion
-objRS.Open "SELECT * FROM ##MiTablaTemporal;", conexion
+'objRS.Open "SELECT SalesOrderID, ProductID, OrderQty INTO ##MiTablaTemporal FROM Sales.SalesOrderDetail WHERE SalesOrderID=43668;", conexion
+'objRS.Open "SELECT * FROM ##MiTablaTemporal;", conexion
+objRS.Open "SET NOCOUNT ON;;with cte as (" & _
+		"select SalesOrderID, ProductID, OrderQty from Sales.SalesOrderDetail where SalesOrderID=43668" & _
+		")" & _
+		" select SalesOrderID, ProductID, OrderQty into #tabla from cte; select * from #tabla;", conexion
+'objRS.Open "select * from ##tabla;", conexion
+'objRS.Open "SET NOCOUNT ON; DECLARE @tabla TABLE (Col1 INT, Col2 INT, Col3 INT); " & _
+'                  "WITH cte AS (" & _
+'                  "    SELECT SalesOrderID, ProductID, OrderQty " & _
+'                  "    FROM Sales.SalesOrderDetail " & _
+'                  "    WHERE SalesOrderID = 43668" & _
+'                  ") " & _
+'                  "INSERT INTO @tabla (Col1, Col2, Col3) " & _
+'                  "SELECT SalesOrderID, ProductID, OrderQty " & _
+'                  "FROM cte; " & _
+'                  "SELECT * FROM @tabla;", conexion
 
-' Imprimir los resultados en la consola
+ 'Imprimir los resultados en la consola
 Do Until objRS.EOF
     WScript.Echo "Col1: " & objRS("SalesOrderID").Value
-    ' Otras columnas...
+     'Otras columnas...
     WScript.Echo "---"
     objRS.MoveNext
 Loop
 
-' Cerrar el Recordset
+ 'Cerrar el Recordset
 objRS.Close
 
-' Cerrar la conexi髇
+ 'Cerrar la conexi贸n
 conexion.Close
 
-' Liberar los objetos
-Set resultadoCreate = Nothing
-Set resultadoSelect = Nothing
+ 'Liberar los objetos
+Set objRS = Nothing
 Set conexion = Nothing
+
+'-----------------------------------------
